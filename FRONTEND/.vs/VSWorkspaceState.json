@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\components\\footer",
+    "\\src\\app\\components\\login",
+    "\\src\\app\\components\\navbar",
+    "\\src\\app\\components\\register",
+    "\\src\\app\\layouts",
+    "\\src\\app\\pages",
+    "\\src\\app\\pages\\medical-report"
+  ],
+  "SelectedNode": "\\src\\index.html",
+  "PreviewInSolutionExplorer": false
+}
