@@ -14,28 +14,48 @@
               <h3 class="mb-0">Training session number 1</h3>
             </div>
             <div class="col-4 text-right">
-              <a routerLink="../training-sessions" class="btn btn-sm btn-primary">BACK</a>
+              <span class="btn btn-sm btn-primary" (click)="stopVideo()">BACK</span>
+              <!-- <a routerLink="../training-sessions" class="btn btn-sm btn-primary" (click)="stopVideo()">BACK</a> -->
             </div>
           </div>
         </div>
         <div class="card-body">
-          <a routerLink="../training-session-play" class="btn btn-sm btn-primary">START SESSION</a>
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
+          <div *ngIf="modelLoaded && !videoCanvasEnable" class="row start-btn">
+            <div class="col text-center mb-3">
+              <button type="button" class="btn btn-lg btn-block"
+                [ngClass]="webBtnStatus ? 'btn-primary' : 'btn-secondary'"
+                (click)="videoCanvasEnable = true; realTimeVideo();">
+                <i class="fa fa-camera" aria-hidden="true"></i> &nbsp; Start session
+              </button>
+            </div>
+          </div>
+          <div class="row">
+            <div [hidden]="true" class="col mb-3">
+              <video #videoElement class="img-border" width="{{ videoWidth }}" height="{{ videoHeight }}"></video>
+            </div>
+            <div [hidden]="!modelLoaded || videoCanvasEnable" class="col mb-3">
+              <canvas id="canvas" class="img-border" width="{{ canvasWidth }}" height="{{ canvasHeight }}"></canvas>
+            </div>
+            <div *ngIf="videoCanvasEnable" class="col mb-3 video">
+              <canvas id="videoCanvas" class="img-border" width="{{ canvasWidth }}"
+                height="{{ canvasHeight }}"></canvas>
+            </div>
+            <div [hidden]="!videoCanvasEnable" class="col mb-3 checkboxes">
+              <div>
+                <mat-slide-toggle [checked]="drawKeypoints" (change)="onKeysChange('drawKeypoints')">Show Keypoints
+                </mat-slide-toggle>
+              </div>
+              <div>
+                <mat-slide-toggle [checked]="drawSkeleton" (change)="onKeysChange('drawSkeleton')">Show Skeleton
+                </mat-slide-toggle>
+              </div>
+              <div>
+                <mat-slide-toggle [checked]="drawBoundingBox" (change)="onKeysChange('drawBoundingBox')">Show Bounding
+                  Box
+                </mat-slide-toggle>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

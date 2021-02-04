@@ -1,0 +1,27 @@
+.card-body {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+
+  .video {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.row.start-btn {
+  width: 20rem;
+  position: absolute;
+  z-index: 1;
+}
+
+.checkboxes {
+  display: flex;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+  div {
+    padding: 10px 2rem;
+  }
+}

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -14,6 +15,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TrainingSessionDetailsComponent } from '../../pages/training-sessions/training-session-details/training-session-details.component';
 import { TrainingSessionPlayComponent } from '../../pages/training-sessions/training-session-play/training-session-play.component';
 // import { ToastrModule } from 'ngx-toastr';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
   imports: [
@@ -22,16 +24,17 @@ import { TrainingSessionPlayComponent } from '../../pages/training-sessions/trai
     FormsModule,
     HttpClientModule,
     NgbModule,
-    ClipboardModule
+    ClipboardModule,
+    MatSlideToggleModule,
   ],
+  exports: [MatSlideToggleModule],
   declarations: [
     MedicalReportComponent,
     UserProfileComponent,
     TrainingSessionsComponent,
     StatisticsComponent,
     TrainingSessionDetailsComponent,
-    TrainingSessionPlayComponent
-  ]
+    TrainingSessionPlayComponent,
+  ],
 })
-
 export class AdminLayoutModule {}

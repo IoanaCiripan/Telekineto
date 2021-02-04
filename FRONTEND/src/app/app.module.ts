@@ -12,9 +12,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
-import { TrainingSessionDetailsComponent } from './pages/training-sessions/training-session-details/training-session-details.component';
-import { TrainingSessionPlayComponent } from './pages/training-sessions/training-session-play/training-session-play.component';
-
+import { BrowserModule } from '@angular/platform-browser';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
   imports: [
@@ -24,14 +24,14 @@ import { TrainingSessionPlayComponent } from './pages/training-sessions/training
     ComponentsModule,
     NgbModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserModule,
+    NgxSliderModule,
+    MatSlideToggleModule,
   ],
-  declarations: [
-    AppComponent,
-    AdminLayoutComponent,
-    AuthLayoutComponent,
-  ],
+  exports: [MatSlideToggleModule],
+  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
